@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MEMORIES.EXE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="terminal">
+
+        <div class="linha">
+Microsoft Windows [Version 10.0.XXXX]
+(c) Open Memory Systems.
+
+        </div>
+
+        <div class="linha">
+
+MEMORIES.EXE v1.0
+
+Inicializando...
+
+Carregando lembranças...
+
+Usuária encontrada.
+
+Existem cinco memórias perdidas.
+
+Recupere todas para desbloquear uma surpresa.
+
+        </div>
+
+        <div class="separador"></div>
+
+        <div id="historico"></div>
+
+        <div id="pergunta" class="pergunta"></div>
+
+        <div class="entrada">
+
+            <span>C:\></span>
+
+            <input
+                id="resposta"
+                autocomplete="off"
+                autofocus
+                spellcheck="false">
+
+        </div>
+
+        <div id="mensagem"></div>
+
+    </div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
