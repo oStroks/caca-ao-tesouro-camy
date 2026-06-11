@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memories</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <main class="container">
+
+        <div class="card">
+
+            <div class="topo">
+
+                <h1>Memories</h1>
+
+                <p class="subtitulo">
+                    Algumas respostas só podem ser encontradas por quem viveu a história.
+                </p>
+
+            </div>
+
+            <div class="progresso">
+
+                <div class="bolinha ativa"></div>
+                <div class="bolinha"></div>
+                <div class="bolinha"></div>
+                <div class="bolinha"></div>
+                <div class="bolinha"></div>
+
+            </div>
+
+            <section class="conteudo">
+
+                <div id="contador">
+                    Memória 1 de 5
+                </div>
+
+                <h2 id="pergunta">
+
+                    Antes de qualquer caminho existe um primeiro passo.
+
+                </h2>
+
+                <input
+                    id="resposta"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Digite sua resposta">
+
+                <button id="continuar">
+
+                    Continuar
+
+                </button>
+
+                <div id="mensagem"></div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
