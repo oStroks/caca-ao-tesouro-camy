@@ -1,28 +1,28 @@
 const etapas = [
 
     {
-        pergunta:"PERGUNTA 1",
-        resposta:"resposta1"
+        pergunta:"Antes de existir um caminho, existiu um primeiro passo.",
+        resposta:"16/05"
     },
 
     {
-        pergunta:"PERGUNTA 2",
-        resposta:"resposta2"
+        pergunta:"Existem viagens que não precisam de estrada. Procure onde as histórias descansam, e a próxima página estará esperando.",
+        resposta:"Matéria escura"
     },
 
     {
-        pergunta:"PERGUNTA 3",
-        resposta:"resposta3"
+        pergunta:"Algumas respostas não florescem depressa. Procure onde a terra encontra o céu e a vida insiste em recomeçar.",
+        resposta:"Dália"
     },
 
     {
-        pergunta:"PERGUNTA 4",
-        resposta:"resposta4"
+        pergunta:"Há lugares que guardam o mundo inteiro sem sair do lugar. Aproxime-se de onde a luz gosta de entrar.",
+        resposta:"Legal"
     },
 
     {
-        pergunta:"PERGUNTA 5",
-        resposta:"resposta5"
+        pergunta:"O tempo costuma confiar seus segredos a quem sabe esperar. Procure onde as lembranças são guardadas a sete chaves",
+        resposta:"Te Amo"
     }
 
 ];
