@@ -92,7 +92,13 @@ function verificar() {
         normalizar(r)
     );
 
+    console.log("Etapa:", etapaAtual + 1);
+    console.log("Digitado:", valor);
+    console.log("Respostas aceitas:", respostasValidas);
+
     if (respostasValidas.includes(valor)) {
+        console.log("Resposta correta!");
+
         etapaAtual++;
 
         if (etapaAtual >= etapas.length) {
@@ -101,6 +107,8 @@ function verificar() {
             carregar();
         }
     } else {
+        console.log("Resposta incorreta!");
+
         mensagem.textContent = "Tente novamente.";
         resposta.value = "";
     }
