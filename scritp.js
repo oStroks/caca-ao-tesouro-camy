@@ -1,163 +1,135 @@
 const etapas = [
 
-    {
-        pergunta: "PERGUNTA 1",
-        resposta: "resposta1"
-    },
+{
+pergunta:"PERGUNTA 1",
+resposta:"resposta1"
+},
 
-    {
-        pergunta: "PERGUNTA 2",
-        resposta: "resposta2"
-    },
+{
+pergunta:"PERGUNTA 2",
+resposta:"resposta2"
+},
 
-    {
-        pergunta: "PERGUNTA 3",
-        resposta: "resposta3"
-    },
+{
+pergunta:"PERGUNTA 3",
+resposta:"resposta3"
+},
 
-    {
-        pergunta: "PERGUNTA 4",
-        resposta: "resposta4"
-    },
+{
+pergunta:"PERGUNTA 4",
+resposta:"resposta4"
+},
 
-    {
-        pergunta: "PERGUNTA 5",
-        resposta: "resposta5"
-    }
+{
+pergunta:"PERGUNTA 5",
+resposta:"resposta5"
+}
 
 ];
 
-let etapaAtual = 0;
+let etapa = 0;
 
 const pergunta = document.getElementById("pergunta");
 const resposta = document.getElementById("resposta");
-const botao = document.getElementById("continuar");
-const mensagem = document.getElementById("mensagem");
 const contador = document.getElementById("contador");
+const mensagem = document.getElementById("mensagem");
 
-function atualizarProgresso() {
+function carregar(){
 
-    const bolinhas = document.querySelectorAll(".bolinha");
+contador.textContent=`Memória ${etapa+1} de ${etapas.length}`;
 
-    bolinhas.forEach((bolinha, index) => {
+pergunta.style.opacity=0;
 
-        if (index <= etapaAtual) {
+setTimeout(()=>{
 
-            bolinha.classList.add("ativa");
+pergunta.textContent=etapas[etapa].pergunta;
 
-        } else {
+pergunta.style.opacity=1;
 
-            bolinha.classList.remove("ativa");
+mensagem.textContent="";
 
-        }
+resposta.value="";
 
-    });
+resposta.focus();
 
-}
-
-function carregarEtapa() {
-
-    pergunta.style.opacity = 0;
-
-    setTimeout(() => {
-
-        pergunta.innerText = etapas[etapaAtual].pergunta;
-
-        contador.innerText = `Memória ${etapaAtual + 1} de ${etapas.length}`;
-
-        resposta.value = "";
-
-        mensagem.innerText = "";
-
-        atualizarProgresso();
-
-        pergunta.style.opacity = 1;
-
-        resposta.focus();
-
-    }, 200);
+},180);
 
 }
 
-function finalizar() {
+function verificar(){
 
-    document.querySelector(".progresso").style.display = "none";
+let valor=resposta.value.trim().toLowerCase();
 
-    contador.style.display = "none";
+let correta=etapas[etapa].resposta.toLowerCase();
 
-    resposta.style.display = "none";
+if(valor===correta){
 
-    botao.style.display = "none";
+mensagem.textContent="Memória encontrada.";
 
-    pergunta.innerHTML = `
-        Todas as memórias foram encontradas.
-        <br><br>
-        ♡
-        <br><br>
-        Cada passo levou a uma lembrança.
-        <br>
-        Cada lembrança levou até aqui.
-        <br><br>
-        Espero que este presente faça você sorrir
-        tanto quanto você faz comigo.
-    `;
+setTimeout(()=>{
 
-    pergunta.style.fontSize = "30px";
+etapa++;
 
-    mensagem.innerHTML = `
-        <br>
-        <strong>Presente desbloqueado.</strong>
-    `;
-}
+if(etapa>=etapas.length){
 
-function verificarResposta() {
+finalizar();
 
-    const valor = resposta.value.trim().toLowerCase();
+}else{
 
-    const correta = etapas[etapaAtual].resposta.trim().toLowerCase();
-
-    if (valor === correta) {
-
-        mensagem.innerText = "Memória encontrada.";
-
-        setTimeout(() => {
-
-            etapaAtual++;
-
-            if (etapaAtual >= etapas.length) {
-
-                finalizar();
-
-            } else {
-
-                carregarEtapa();
-
-            }
-
-        }, 700);
-
-    }
-
-    else {
-
-        mensagem.innerText = "Talvez exista outra resposta.";
-
-        resposta.value = "";
-
-    }
+carregar();
 
 }
 
-botao.addEventListener("click", verificarResposta);
+},600);
 
-resposta.addEventListener("keydown", function(e){
+}else{
 
-    if(e.key === "Enter"){
+mensagem.textContent="Talvez exista outra resposta.";
 
-        verificarResposta();
+resposta.value="";
 
-    }
+}
+
+}
+
+function finalizar(){
+
+document.querySelector(".info").style.display="none";
+
+resposta.style.display="none";
+
+contador.style.display="none";
+
+mensagem.style.display="none";
+
+pergunta.innerHTML=`
+
+Cada passo levou a uma lembrança.
+
+<br><br>
+
+E cada lembrança trouxe você até aqui.
+
+<br><br>
+
+♡
+
+<br><br>
+
+Agora só falta encontrar o último detalhe.
+
+`;
+
+}
+
+resposta.addEventListener("keydown",(e)=>{
+
+if(e.key==="Enter"){
+
+verificar();
+
+}
 
 });
 
-carregarEtapa();
+carregar();
