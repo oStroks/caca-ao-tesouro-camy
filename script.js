@@ -130,7 +130,7 @@ function finalizar() {
 
         <br><br>
 
-        Seu presente está esperando.
+        Seu presente está esperando na terceira gaveta de onde dormimos.
     `;
 }
 
