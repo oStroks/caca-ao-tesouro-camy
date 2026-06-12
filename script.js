@@ -1,27 +1,46 @@
 const etapas = [
     {
         pergunta: "Antes de existir um caminho, existiu um primeiro passo.",
-        resposta: "16/05"
+        respostas: ["16/05", "16-05", "16 de maio"]
     },
 
     {
         pergunta: "Existem viagens que não precisam de estrada. Procure onde as histórias descansam, e a próxima página estará esperando.",
-        resposta: "Matéria escura"
+        respostas: [
+            "matéria escura",
+            "materia escura",
+            "livro matéria escura",
+            "livro materia escura"
+        ]
     },
 
     {
         pergunta: "Algumas respostas não florescem depressa. Procure onde a terra encontra o céu e a vida insiste em recomeçar.",
-        resposta: "Dália"
+        respostas: [
+            "dália",
+            "dalia",
+            "flor dália",
+            "flor dalia"
+        ]
     },
 
     {
         pergunta: "Há lugares que guardam o mundo inteiro sem sair do lugar. Aproxime-se de onde a luz gosta de entrar.",
-        resposta: "Legal"
+        respostas: [
+            "legal",
+            "janela",
+            "perto da janela"
+        ]
     },
 
     {
         pergunta: "O tempo costuma confiar seus segredos a quem sabe esperar. Procure onde as lembranças são guardadas a sete chaves.",
-        resposta: "Te Amo"
+        respostas: [
+            "te amo",
+            "eu te amo",
+            "amo você",
+            "amo voce"
+        ]
     }
 ];
 
@@ -31,6 +50,14 @@ const dots = document.querySelectorAll(".dot");
 const pergunta = document.getElementById("pergunta");
 const resposta = document.getElementById("resposta");
 const mensagem = document.getElementById("mensagem");
+
+function normalizar(texto) {
+    return texto
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
 
 function atualizarBolinhas() {
     dots.forEach((dot, index) => {
@@ -59,10 +86,13 @@ function carregar() {
 }
 
 function verificar() {
-    const valor = resposta.value.trim().toLowerCase();
-    const correta = etapas[etapaAtual].resposta.toLowerCase();
+    const valor = normalizar(resposta.value);
 
-    if (valor === correta) {
+    const respostasValidas = etapas[etapaAtual].respostas.map(r =>
+        normalizar(r)
+    );
+
+    if (respostasValidas.includes(valor)) {
         etapaAtual++;
 
         if (etapaAtual >= etapas.length) {
